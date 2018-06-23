@@ -6,7 +6,6 @@ def list_fractions(amount):
     difference = []
     for i in range(1, amount):
         fractions.append(1/i)
-        print(fractions[i-1])
     return fractions
 
 def list_differences(list):
@@ -15,15 +14,18 @@ def list_differences(list):
         if list[int(i-1)]:
             diff = list[i-1] - list[i]
             difference.append(diff)
-            print(diff)
     return difference
 
-amount = 16
+amount = 20
 
 fractions = list_fractions(amount)
-print(fractions)
 numpy_fractions = np.array(fractions)
 
 differences = list_differences(fractions)
-print(differences)
+del differences[0]
 numpy_differences = np.array(differences)
+
+plt.plot(range(1,amount), numpy_fractions)
+plt.plot(range(2,amount), numpy_differences)
+
+plt.show()
