@@ -23,4 +23,12 @@ while dCount < 10:
     distance = temp[dCount]
     Y = temp
 
-print(Y)
+X = np.arange(0,len(Y))
+
+plt.plot(X,Y,color="purple",label="Lucky series")
+
+plt.legend(loc='upper left', frameon=False)
+plt.annotate('Value at x=5', xy=(5,15), xytext=(1,25), arrowprops=dict(arrowstyle="->"))
+
+plt.savefig("figures/luckySeries.png",dip=100)
+plt.show()
