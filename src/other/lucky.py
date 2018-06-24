@@ -1,25 +1,26 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-noTerms = 40
+noTerms = 100
 
 X = np.arange(1,noTerms)
 
 Y = list(range(1,noTerms))
 count = 0
 distance = 2
+dCount = 0
 
-while distance < 10:
+while dCount < 10:
     temp = []
-    print("The current parameters are: \nDistance: {distance}".format(distance=distance))
+    count = 0
     for i in range(0,len(Y)):
         count = count+1
         if count != distance:
-            print(Y[i])
             temp.append(Y[i])
         else:
             count = 0
-    distance = temp[distance-1]
+    dCount = dCount+1
+    distance = temp[dCount]
     Y = temp
 
 print(Y)
