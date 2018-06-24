@@ -25,7 +25,7 @@ while dCount < 10:
 
 X = np.arange(0,len(Y))
 
-plt.plot(X,Y,color="purple",label="Lucky series")
+plt.scatter(X,Y,color="purple",label="Lucky series")
 
 plt.legend(loc='upper left', frameon=False)
 plt.annotate('Value at x=5', xy=(5,15), xytext=(1,25), arrowprops=dict(arrowstyle="->"))
