@@ -1,29 +1,34 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def secondDegree(a, b, c, start, end):
-    Y = []
-    for i in range(start, end):
-        print(a)
-        Y.append(a*(i**2) + b*i + c)
-    return Y
 
-def display(X,Y):
-    plt.plot(X,Y)
-    plt.show()
+class Quadratic:
 
-start = -10
-end = 10
-X = np.arange(start,end)
+    def __init__(self, a, b, c, start=0, end=10):
+        self.a = a
+        self.b = b
+        self.c = c
+        self.start = start
+        self.end = end
+        self.Y=[]
+        self.X=np.arange(start, end)
+        self.secondDegree()
 
-a = 2
-b = 6
-c = 12
-Y = secondDegree(a,b,c,start,end)
-print(Y)
-print(min(Y))
-print(max(Y))
+    def secondDegree(self):
+        for i in range(self.start, self.end):
+            self.Y.append(self.a*(i**2) + self.b*i + self.c)
 
-plt.ylim(min(Y),max(Y))
+    def display(self):
+        plt.plot(self.X, self.Y)
+        self.setLims()
+        plt.show()
 
-display(X,Y)
+    def setLims(self):
+        ymin = min(self.Y) - abs(0.1*min(self.Y))
+        ymax = max(self.Y) + abs(0.1*max(self.Y))
+        plt.ylim(ymin, ymax)
+
+
+
+quad = Quadratic(2,6,12,-10,11)
+quad.display()
